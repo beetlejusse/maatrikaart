@@ -5,7 +5,8 @@ import { List, X, MagnifyingGlassIcon } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
+import { recordPageView } from "@/lib/pageview-tracker";
 
 interface LinkItem {
   href: string;
@@ -125,4 +126,17 @@ export default function NavBar() {
       )}
     </div>
   );
+}
+
+export function PageViewTracker() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    // Record the page view when the path changes
+    const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : "");
+    recordPageView(url);
+  }, [pathname, searchParams]);
+
+  return null;
 }
