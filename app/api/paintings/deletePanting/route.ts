@@ -13,7 +13,6 @@ export async function DELETE(request: NextRequest) {
             );
         }
 
-        // Check if painting exists
         const existingPainting = await prisma.painting.findUnique({
             where: { id },
         });
@@ -25,7 +24,6 @@ export async function DELETE(request: NextRequest) {
             );
         }
 
-        // Delete painting
         await prisma.painting.delete({
             where: { id },
         }); return NextResponse.json(

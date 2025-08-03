@@ -6,7 +6,6 @@ export async function POST(request: NextRequest) {
         const body = await request.json();
         const { title, artist, description, imageUrl, price, year, userId } = body;
 
-        // Validation
         if (!title || !artist || !imageUrl || !userId) {
             return NextResponse.json(
                 { error: 'Title, artist, imageUrl, and userId are required' },
@@ -14,7 +13,6 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Verify user exists
         const user = await prisma.user.findUnique({
             where: { id: userId }
         });
@@ -26,7 +24,6 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Create painting
         const painting = await prisma.painting.create({
             data: {
                 title,

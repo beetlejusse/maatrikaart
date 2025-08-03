@@ -13,7 +13,6 @@ export async function PUT(request: NextRequest) {
             );
         }
 
-        // Check if painting exists
         const existingPainting = await prisma.painting.findUnique({
             where: { id },
         });
@@ -25,7 +24,6 @@ export async function PUT(request: NextRequest) {
             );
         }
 
-        // If userId is being updated, verify the new user exists
         if (userId && userId !== existingPainting.userId) {
             const user = await prisma.user.findUnique({
                 where: { id: userId },
@@ -39,7 +37,6 @@ export async function PUT(request: NextRequest) {
             }
         }
 
-        // Update painting
         const updatedPainting = await prisma.painting.update({
             where: { id },
             data: {
