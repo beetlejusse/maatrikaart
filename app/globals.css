@@ -95,36 +95,9 @@ html {
   }
 }
 
-.group::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%) scaleY(0);
-  /* Starts at middle bottom, scaled to 0 height */
-  width: 100%;
-  height: 100%;
-  background-color: rgba(180,
-      83,
-      9,
-      0.8);
-  /* Amber-700 with slight opacity for beauty */
-  opacity: 0;
-  filter: blur(4px);
-  /* Soft blur for smooth effect */
-  transition: transform 0.5s ease-out, opacity 0.5s ease-out,
-    filter 0.5s ease-out;
-  transform-origin: bottom center;
-  /* Animates upward from bottom */
-  border-radius: inherit;
-  z-index: 0;
-  /* Behind the text */
-}
-
 .group:hover::before {
   transform: translateX(-50%) scaleY(1);
   /* Scales up to full height */
   opacity: 1;
   filter: blur(0);
-  /* Sharpens as it covers */
 }
