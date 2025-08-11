@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
+import { PageViewTracker } from "@/components/Navbar";
+// import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
   title: "maatrikaart",
@@ -14,9 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased tracking-wide`}
-      >
+      <body className={`antialiased tracking-wide`}>
         <div
           className="fixed inset-0 z-0"
           style={{
@@ -27,7 +27,9 @@ export default function RootLayout({
           `,
           }}
         />
+        <PageViewTracker />
         {children}
+        <Toaster />
       </body>
     </html>
   );
