@@ -50,8 +50,8 @@ export const authOptions: NextAuthOptions = {
       },
     }),
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID ?? '',
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
+      clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID||"",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     }),
   ],
   pages: {
@@ -74,18 +74,15 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
     async redirect({ url, baseUrl }) {
-      // Handle admin redirects
       if (url.startsWith('/admin')) {
         return `${baseUrl}${url}`;
       }
-      // Allow relative callback URLs
       if (url.startsWith("/")) return `${baseUrl}${url}`;
-      // Allow callback URLs on the same origin
       if (new URL(url).origin === baseUrl) return url;
       return `${baseUrl}/admin/dashboard`;
     },
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
 };
 
 const handler = NextAuth(authOptions);
