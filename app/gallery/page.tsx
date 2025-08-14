@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Showcards from "@/components/ShowCards";
 import PaintingsGallery from "../../components/PaintingsManager";
 
 const page = () => {
