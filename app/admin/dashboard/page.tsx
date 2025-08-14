@@ -24,7 +24,6 @@ export default function AdminDashboard() {
     if (!session) router.push("/admin/login");
   }, [session, status, router]);
 
-  // Fetch analytics data
   useEffect(() => {
     const fetchAnalytics = async () => {
       if (!session) return;
@@ -60,7 +59,6 @@ export default function AdminDashboard() {
     <div className="min-h-screen relative z-30">
       <DashNav />
 
-      {/* Welcome Section */}
       <div className="container mx-auto my-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8 mt-28">
           <h1 className="text-3xl font-bold text-slate-800  mb-2">
@@ -72,7 +70,6 @@ export default function AdminDashboard() {
           </p>
         </div>
 
-        {/* Analytics Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <AnalyticsCard
             title="Website Views"

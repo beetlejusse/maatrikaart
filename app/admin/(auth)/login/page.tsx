@@ -52,7 +52,6 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen w-full relative bg-white">
-      {/* Background gradient matching the gallery theme */}
       <div
         className="absolute inset-0 z-0"
         style={{
@@ -63,10 +62,9 @@ const LoginPage = () => {
           mixBlendMode: "multiply",
         }}
       />
-      
+
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4 py-8">
         <div className="w-full max-w-md">
-          {/* Logo/Brand Section */}
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-gray-800 mb-2 font-yatra">
               मातृका आर्ट
@@ -74,7 +72,6 @@ const LoginPage = () => {
             <p className="text-gray-600 font-kalam">Admin Login</p>
           </div>
 
-          {/* Login Form */}
           <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-lg p-8 border border-white/20">
             <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6 font-ranga">
               Welcome Back
@@ -88,7 +85,10 @@ const LoginPage = () => {
 
             <form onSubmit={handleCredentialsLogin} className="space-y-6">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Email Address
                 </label>
                 <input
@@ -103,7 +103,10 @@ const LoginPage = () => {
               </div>
 
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Password
                 </label>
                 <input
@@ -133,13 +136,15 @@ const LoginPage = () => {
               </button>
             </form>
 
-            <div className="mt-6">
+            {/* <div className="mt-6">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-gray-300"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                  <span className="px-2 bg-white text-gray-500">
+                    Or continue with
+                  </span>
                 </div>
               </div>
 
@@ -168,12 +173,15 @@ const LoginPage = () => {
                 </svg>
                 Sign in with Google
               </button>
-            </div>
+            </div> */}
 
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-600">
                 Don't have an account?{" "}
-                <Link href="/admin/signup" className="text-yellow-600 hover:text-yellow-700 font-medium">
+                <Link
+                  href="/admin/signup"
+                  className="text-yellow-600 hover:text-yellow-700 font-medium"
+                >
                   Sign up here
                 </Link>
               </p>
