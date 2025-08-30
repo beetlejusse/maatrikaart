@@ -1,36 +1,35 @@
 import type { Metadata } from "next";
+import { Noto_Serif_JP, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "@/components/ui/sonner";
-import { PageViewTracker } from "@/components/Navbar";
-// import { SessionProvider } from "next-auth/react";
+import type React from "react"; // Import React
+
+const notoSerif = Noto_Serif_JP({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
+const notoSans = Noto_Sans_JP({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "maatrikaart",
-  description: "Art Gallery",
+  title: "Maatrika Art — Artist Portfolio & Gallery",
+  description:
+    "Maatrika Art is an artist’s gallery of original paintings. Explore the gallery, learn about the artist, and inquire about commissions.",
+  generator: "v0.app",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body className={`antialiased tracking-wide`}>
-        <div
-          className="fixed inset-0 z-0"
-          style={{
-            backgroundImage: `
-            radial-gradient(circle at 50% 100%, rgba(253, 224, 71, 0.4) 0%, transparent 60%),
-            radial-gradient(circle at 50% 100%, rgba(251, 191, 36, 0.4) 0%, transparent 70%),
-            radial-gradient(circle at 50% 100%, rgba(244, 114, 182, 0.5) 0%, transparent 80%)
-          `,
-          }}
-        />
-        <PageViewTracker />
-        {children}
-        <Toaster />
-      </body>
+    <html lang="en" suppressHydrationWarning className={`${notoSerif.variable} ${notoSans.variable}`}>
+      <body className="font-sans">{children}</body>
     </html>
   );
 }
