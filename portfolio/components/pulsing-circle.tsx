@@ -7,7 +7,9 @@ export default function PulsingCircle() {
   const MAATRIKA_URL = process.env.NEXT_PUBLIC_MAATRIKA_ART_URL
 
   return (
-    <div className="absolute bottom-8 right-8 z-30">
+    <div
+      className="hidden sm:block absolute bottom-6 right-4 sm:bottom-8 sm:right-8 z-30"
+    >
       <a
         href={MAATRIKA_URL || "/gallery"}
         target={MAATRIKA_URL ? "_blank" : undefined}
