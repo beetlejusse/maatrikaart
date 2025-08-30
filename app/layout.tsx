@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Noto_Serif_JP, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
-import type React from "react"; // Import React
+import type React from "react";
+import { Analytics } from "@vercel/analytics/next";
 
 const notoSerif = Noto_Serif_JP({
   subsets: ["latin"],
@@ -28,8 +29,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${notoSerif.variable} ${notoSans.variable}`}>
-      <body className="font-sans">{children}</body>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${notoSerif.variable} ${notoSans.variable}`}
+    >
+      <body className="font-sans">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

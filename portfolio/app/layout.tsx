@@ -4,6 +4,7 @@ import { Figtree } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -43,6 +44,7 @@ html {
         `}</style>
       </head>
       <body className={`${figtree.variable} ${instrumentSerif.variable}`}>
+        <Analytics />
         {children}
       </body>
     </html>
